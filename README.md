@@ -11,6 +11,7 @@ Google Shopping Scraper is an Apify Actor that returns Google Shopping results f
 - One row per product: title, price and currency, original price and discount, store, other stores flag, delivery, returns, rating, review count, thumbnail, Google product IDs and a Google Shopping link.
 - Any Google Shopping country; prices come in that country's currency.
 - Plain HTTP through Apify's Google SERP proxy: a search takes a few seconds.
+- Price tracking: with Only new results on, a scheduled run returns only new listings and price changes since the last run (per store), with the previous price. Guide: https://retracn.github.io/automationnation-actors/guides/google-shopping-price-tracker/
 - Price: $1 per 1,000 products; Apify's free $5 monthly credit covers 5,000 products.
 
 ## Example input
@@ -107,6 +108,9 @@ Google's Content API manages your own Merchant Center products; it doesn't retur
 
 **How many products per search?**
 About 50, the number Google shows on a Shopping results page.
+
+**Can it track price changes?**
+Yes. Turn on Only new results and schedule it: each run returns new listings and price changes since the last run, marked price_down or price_up, with the previous price.
 
 ## More from AutomationNation
 
